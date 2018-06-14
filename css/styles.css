@@ -350,3 +350,23 @@ nav h1 a {
 #restaurant-hours td {
   color: #666;
 }
+
+/* ====================== Media Queries ====================== */
+
+/* For devices smaller than 440px   */
+
+@media only screen and (max-device-width:440px) {
+  nav {
+    height: 100px;
+  }
+  nav h1 {
+    padding: 22px;
+  }
+  .filter-options {
+    height: 150px;
+  }
+  #restaurants-list li {
+    padding: 4%;
+    width: 332px;
+  }
+}
