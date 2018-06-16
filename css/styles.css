@@ -38,9 +38,11 @@ a {
 }
 
 a:hover,
-a:focus {
+a:focus,
+select:focus {
   color: #3397db;
   text-decoration: none;
+  box-shadow: #5f5a5a 0 0 6px;
 }
 
 a img {
@@ -399,4 +401,17 @@ nav h1 a {
   .inside #map-container {
     padding-top: 12%;
   }
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background-color: #ccc;
+  padding: 8px;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
 }
