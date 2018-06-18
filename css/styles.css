@@ -229,7 +229,8 @@ nav h1 a {
   text-transform: uppercase;
 }
 
-#restaurants-list p {
+#restaurants-list p,
+#restaurants-list address {
   margin: 0;
   font-size: 11pt;
 }
