@@ -172,11 +172,13 @@ createRestaurantHTML = (restaurant) => {
 
   const address = document.createElement('address');
   address.innerHTML = restaurant.address;
+  address.setAttribute('aria-label', `${restaurant.name} address is ${restaurant.address} `);
   li.append(address);
 
   const more = document.createElement('a');
   more.innerHTML = 'View Details';
   more.href = DBHelper.urlForRestaurant(restaurant);
+  more.setAttribute('aria-label', `Go to ${restaurant.name}  restaurant page`);
   li.append(more);
 
   return li;
