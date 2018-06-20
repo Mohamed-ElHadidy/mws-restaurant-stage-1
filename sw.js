@@ -23,16 +23,42 @@ self.addEventListener('install', function (event) {
                 "/img/10.jpg",
                 "/data/restaurants.json",
                 "https://unpkg.com/leaflet@1.3.1/dist/leaflet.js",
-                "https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
+                "https://unpkg.com/leaflet@1.3.1/dist/leaflet.css",
+                "/restaurant.html?id=1",
+                "/restaurant.html?id=2",
+                "/restaurant.html?id=3",
+                "/restaurant.html?id=4",
+                "/restaurant.html?id=5",
+                "/restaurant.html?id=5",
+                "/restaurant.html?id=6",
+                "/restaurant.html?id=7",
+                "/restaurant.html?id=8",
+                "/restaurant.html?id=9",
+                "/restaurant.html?id=9",
+                "/restaurant.html?id=10"
             ]);
         })
     );
 });
 
+self.addEventListener('activate', function (event) {
+    event.waitUntil(
+        caches.keys().then(function (cacheNames) {
+            return Promise.all(
+                cacheNames.filter(function (cacheName) {
+                    return cacheName.startsWith('cache-') &&
+                        cacheName != cacheVersion;
+                }).map(function (cacheName) {
+                    return cache.delete(cacheName);
+                })
+            );
+        })
+    );
+});
 
-self.addEventListener('fetch', function(event) {
+self.addEventListener('fetch', function (event) {
     event.respondWith(
-        caches.match(event.request).then(function(response)  {
+        caches.match(event.request).then(function (response) {
             return response || fetch(event.request);
         })
     );
